@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane fx:id="mainPane" xmlns:fx="http://javafx.com/fxml" fx:controller="dev.goerissen.colourpalettegrabber.controller.MainController">
+    <top>
+        <VBox spacing="10" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="15.0" right="10.0" bottom="15.0" left="10.0"/>
+            </padding>
+            <Label fx:id="title" text="Colour Palette Grabber v1.0.0b" styleClass="h1, text-center, text-secondary" BorderPane.alignment="CENTER" managed="true"/>
+            <Label fx:id="description" wrapText="true" text="Entdecken Sie die Farbwelt Ihrer Bilder. Erstellen Sie mühelos eine harmonische Farbpalette. Unser Tool analysiert die häufigsten Farben, filtert ähnliche Farbtöne und reduziert die Auswahl auf eine übersichtliche Anzahl – ideal, um beispielsweise die charakteristischen Farben Ihres Logos zu extrahieren." styleClass="h5, text-center, text-secondary" BorderPane.alignment="CENTER" managed="true"/>
+            <Label fx:id="subTitle" wrapText="true" text="Wählen Sie ein Bild oder ziehen Sie es einfach hierher, um dessen Farbpalette zu extrahieren." styleClass="h1, text-center, text-primary" BorderPane.alignment="CENTER" managed="true"/>
+            <HBox alignment="BASELINE_CENTER" spacing="10">
+                <Button fx:id="selectImageButton" text="Bild auswählen" onAction="#handleSelectImage" styleClass="btn, btn-lg, btn-primary" />
+                <Button fx:id="getTitlesBackButton" text="Hinweise" onAction="#handleGetTitlesBack" styleClass="btn, btn-secondary" managed="false"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane fx:id="splitPane" visible="false" dividerPositions="0.5">
+            <VBox fx:id="imageViewParent" spacing="10" alignment="TOP_CENTER">
+                <ScrollPane style="none" fitToWidth="true" BorderPane.alignment="CENTER">
+                    <ImageView fx:id="imageView" preserveRatio="true" style="-fx-border-color: #000; -fx-border-style: dashed; -fx-border-width: 2;"/>
+                </ScrollPane>
+            </VBox>
+
+            <ScrollPane fx:id="colorScrollPane" fitToWidth="true" prefHeight="200" BorderPane.alignment="CENTER">
+                <VBox fx:id="colorPane" spacing="10" alignment="CENTER" />
+                <padding>
+                    <Insets bottom="10.0" left="0.0" right="0.0" top="10.0"/>
+                </padding>
+            </ScrollPane>
+        </SplitPane>
+
+
+
+    </center>
+
+</BorderPane>
