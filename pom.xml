@@ -12,6 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.10.0</junit.version>
+        <java.version>17</java.version>
     </properties>
 
     <dependencies>
@@ -82,12 +83,18 @@
                             <mainClass>
                                 dev.goerissen.colourpalettegrabber/dev.goerissen.colourpalettegrabber.Main
                             </mainClass>
+                            <addModules>j<stripNativeCommands>true</stripNativeCommands>javafx.fxml</addModules>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
+                            <compress>2</compress>
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>
+                            <stripNativeCommands>true</stripNativeCommands>
+                            <options>
+                                <option></option>
+                            </options>
                         </configuration>
                     </execution>
                 </executions>

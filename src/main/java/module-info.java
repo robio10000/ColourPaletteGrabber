@@ -12,4 +12,6 @@ module dev.goerissen.colourpalettegrabber {
     exports dev.goerissen.colourpalettegrabber;
     exports dev.goerissen.colourpalettegrabber.controller;
     opens dev.goerissen.colourpalettegrabber.controller to javafx.fxml;
+
+    exports dev.goerissen.colourpalettegrabber.util;
 }
