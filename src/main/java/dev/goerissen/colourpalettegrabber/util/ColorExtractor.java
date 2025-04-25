@@ -1,9 +1,6 @@
 package dev.goerissen.colourpalettegrabber.util;
 
 import javafx.geometry.Pos;
-import javafx.scene.Cursor;
-import javafx.scene.input.Clipboard;
-import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -16,7 +13,7 @@ import java.util.*;
 /**
  * Utility class to extract colors from images.
  * It provides methods to extract all colors, dominant colors, and create color boxes with buttons.
- * @version 1.0.0
+ * @version 1.0.1
  * @since 2025-04-24
  * @author robingorissen
  */
@@ -90,62 +87,16 @@ public class ColorExtractor {
         VBox textBox = new VBox(10);
         textBox.setAlignment(Pos.CENTER);
 
-        // R:[0-255] G:[0-255] B:[0-255] (RGB)
-        Text rgb = new Text(String.format("R:%d G:%d B:%d",
-                (int)(color.getRed() * 255),
-                (int)(color.getGreen() * 255),
-                (int)(color.getBlue() * 255)));
-        rgb.setFill(color.invert());
-        rgb.setCursor(Cursor.HAND);
-
-        rgb.setOnMouseClicked(event -> {
-            Clipboard clipboard = Clipboard.getSystemClipboard();
-            ClipboardContent content = new ClipboardContent();
-            content.putString(rgb.getText());
-            clipboard.setContent(content);
-
-            PopUp.showPopUpTooltip(rgb, "RGB value copied to clipboard!");
-        });
+        // RGB([0-255], [0-255], [0-255]) (RGB)
+        Text rgb = ColorTextFX.getRGB(color);
         textBox.getChildren().add(rgb);
 
         // (CMYK)
-        double k = 1 - Math.max(color.getRed(), Math.max(color.getGreen(), color.getBlue()));
-        double c = k<1 ? (1 - color.getRed() - k) / (1 - k) : 0;
-        double m = k<1 ? (1 - color.getGreen() - k) / (1 - k) : 0;
-        double y = k<1 ? (1 - color.getBlue() - k) / (1 - k) : 0;
-
-        Text cmyk = new Text(String.format("C:%d M:%d Y:%d K:%d",
-                (int)(c * 255),
-                (int)(m * 255),
-                (int)(y * 255),
-                (int)(k * 255)));
-        cmyk.setFill(color.invert());
-        cmyk.setCursor(Cursor.HAND);
-        cmyk.setOnMouseClicked(event -> {
-            Clipboard clipboard = Clipboard.getSystemClipboard();
-            ClipboardContent content = new ClipboardContent();
-            content.putString(cmyk.getText());
-            clipboard.setContent(content);
-
-            PopUp.showPopUpTooltip(rgb, "CMYK value copied to clipboard!");
-        });
+        Text cmyk = ColorTextFX.getCMYK(color);
         textBox.getChildren().add(cmyk);
 
         // # RRGGBB (Hexadezimal)
-        Text hex = new Text(String.format("#%02X%02X%02X",
-                (int)(color.getRed() * 255),
-                (int)(color.getGreen() * 255),
-                (int)(color.getBlue() * 255)));
-        hex.setFill(color.invert());
-        hex.setCursor(Cursor.HAND);
-        hex.setOnMouseClicked(event -> {
-            Clipboard clipboard = Clipboard.getSystemClipboard();
-            ClipboardContent content = new ClipboardContent();
-            content.putString(hex.getText());
-            clipboard.setContent(content);
-
-            PopUp.showPopUpTooltip(rgb, "HEX value copied to clipboard!");
-        });
+        Text hex = ColorTextFX.getHex(color);
         textBox.getChildren().add(hex);
 
         pane.getChildren().add(textBox);
