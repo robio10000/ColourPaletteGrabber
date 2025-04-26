@@ -1,7 +1,9 @@
 package dev.goerissen.colourpalettegrabber.controller;
 
+import dev.goerissen.colourpalettegrabber.controller.helper.ColorBoxBuilder;
 import dev.goerissen.colourpalettegrabber.controller.helper.MainFXHelper;
 import dev.goerissen.colourpalettegrabber.util.ColorExtractor;
+import dev.goerissen.colourpalettegrabber.util.ColorTextFX;
 import dev.goerissen.colourpalettegrabber.util.PopUp;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -18,6 +20,8 @@ import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -51,14 +55,26 @@ public class MainController {
 
     private int colorCount = 16;
     private int colorTolerance = 50;
-    private int rectangleHeight = 100;
+    private int rectangleHeight = 25;
     private MainFXHelper fxHelper;
+
+    private Collection<String> colorFormats;
 
     /**
      * Initializes the controller and sets up event handlers.
      */
     @FXML
     private void initialize() {
+        // Initialize color formats
+        colorFormats = new ArrayList<>();
+        colorFormats.add(ColorTextFX.RGB);
+        colorFormats.add(ColorTextFX.CMYK);
+        colorFormats.add(ColorTextFX.HEX);
+        colorFormats.add(ColorTextFX.LAB);
+        colorFormats.add(ColorTextFX.HSL);
+        colorFormats.add(ColorTextFX.XYZ);
+        colorFormats.add(ColorTextFX.LUV);
+        colorFormats.add(ColorTextFX.HWB);
 
         fxHelper = new MainFXHelper(title, subTitle, description, getTitlesBackButton, splitPane);
 
@@ -126,7 +142,7 @@ public class MainController {
             List<Color> colors = ColorExtractor.extractDistinctColors(ColorExtractor.extractAllColors(bufferedImage), colorCount, colorTolerance);
             colorPane.getChildren().clear();
             for (javafx.scene.paint.Color color : colors) {
-                StackPane pane = ColorExtractor.createColorBoxWithColorButtons(color, colorScrollPane.getWidth()-15, rectangleHeight);
+                StackPane pane = ColorBoxBuilder.createColorBox(color, colorScrollPane.getWidth()-15, rectangleHeight, colorFormats);
                 colorPane.getChildren().add(pane);
             }
 
@@ -294,5 +310,13 @@ public class MainController {
 
     public void setRectangleHeight(int rectangleHeight) {
         this.rectangleHeight = rectangleHeight;
+    }
+
+    public Collection<String> getColorFormats() {
+        return colorFormats;
+    }
+
+    public void setColorFormats(Collection<String> colorFormats) {
+        this.colorFormats = colorFormats;
     }
 }
