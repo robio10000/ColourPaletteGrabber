@@ -22,7 +22,7 @@
 
     <center>
         <SplitPane fx:id="splitPane" visible="false" dividerPositions="0.5">
-            <VBox fx:id="imageViewParent" spacing="10" alignment="TOP_CENTER">
+            <VBox fx:id="imageViewParent" alignment="TOP_CENTER">
                 <ScrollPane style="none" fitToWidth="true" BorderPane.alignment="CENTER">
                     <ImageView fx:id="imageView" preserveRatio="true" style="-fx-border-color: #000; -fx-border-style: dashed; -fx-border-width: 2;"/>
                 </ScrollPane>
@@ -31,7 +31,7 @@
             <ScrollPane fx:id="colorScrollPane" fitToWidth="true" prefHeight="200" BorderPane.alignment="CENTER">
                 <VBox fx:id="colorPane" spacing="10" alignment="CENTER" />
                 <padding>
-                    <Insets bottom="10.0" left="0.0" right="0.0" top="10.0"/>
+                    <Insets bottom="0.0" left="0.0" right="0.0" top="0.0"/>
                 </padding>
             </ScrollPane>
         </SplitPane>
