@@ -20,11 +20,10 @@
 - **Responsive Design**: Adapts to different screen sizes and resolutions.
 - **Drag and Drop Support**: Easily add pictures to generate palettes.
 - **Copy and Paste Functionality**: Quickly copy and paste colors between palettes.
-- **Color Format Support**: Support for various color formats (e.g., RGB, CMYK, HEX).
+- **Color Format Support**: Support for various color formats (RGB, CMYK, HEX, LAB, HSL, LUV, HWB, XYZ).
 
 ### Near Future Features (Planned):
 
-- **More Color Format Support**: Support for additional color formats (e.g., HSL, LAB).
 - **Color Palette Generator Configuration**: Allow users to configure the color palette generation process.
 - **Multi-Language Support**: Available in multiple languages for a broader audience.
 - **Customizable Themes**: Allows users to customize the application's appearance with different themes.
