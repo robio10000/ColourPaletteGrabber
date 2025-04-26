@@ -3,7 +3,7 @@ package dev.goerissen.colourpalettegrabber.util;
 /**
  * Utility class for color calculations.
  *
- * @version 1.0.0
+ * @version 1.0.1
  * @since 2025-04-25
  * @author robingorissen
  */

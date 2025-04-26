@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * Utility class to extract colors from images.
  * It provides methods to extract all colors, dominant colors, and create color boxes with buttons.
- * @version 1.0.1
+ * @version 1.0.2
  * @since 2025-04-24
  * @author robingorissen
  */

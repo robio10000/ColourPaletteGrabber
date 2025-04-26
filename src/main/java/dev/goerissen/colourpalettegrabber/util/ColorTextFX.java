@@ -10,7 +10,7 @@ import javafx.scene.text.Text;
  * Utility class for color text representation in JavaFX.
  * It provides methods to create text representations of colors in RGB, CMYK, and HEX formats.
  *
- * @version 1.0.0
+ * @version 1.0.1
  * @since 2025-04-25
  * @author robingorissen
  */

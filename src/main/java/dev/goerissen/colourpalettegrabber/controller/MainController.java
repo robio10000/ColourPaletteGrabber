@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * MainController is the controller class for the main view of the application.
  * It handles user interactions, image loading, and color extraction.
- * @version 1.0.0
+ * @version 1.0.1
  * @since 2025-04-24
  * @author robingorissen
  */
