@@ -1,6 +1,6 @@
 
 # ColourPaletteGrabber
-![Java](https://img.shields.io/badge/Java-17-blue.svg)
+![Java](https://img.shields.io/badge/Java-17.0.10-blue.svg)
 ![JavaFX](https://img.shields.io/badge/JavaFX-17.0.6-blue.svg)
 ![BootstrapFX](https://img.shields.io/badge/BootstrapFX-0.4.0-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
